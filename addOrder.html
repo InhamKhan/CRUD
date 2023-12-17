@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raw Materials</title>
+    
+</head>
+<body>
+    <h2>Raw-Material Order List</h2>
+    <form action="addOrder.htm"   onsubmit="return validatematerial();" method="POST"></form>
+    <table>
+
+       <tr>
+           <td>Order:</td>
+           <td> <input type="text" name="order_id" id="order_id" size="25"></td>
+           <span id="orderError" class="error"></span>
+       </tr>
+       <tr>
+           <td>Customer: </td>
+           <td><input type="text" name="customer_name" id="customer_name" size="25"></td>
+           <span id="customerError" class="error"></span>
+       </tr>
+       <tr>
+           <td>Total-Order:</td>
+           <td><input type="text" name="order_total" id="order_total" onchange="calc()" size="25"></td>
+           <span id="totalError" class="error"></span>
+       </tr>
+       <tr>
+           <td>Address:</td>
+           <td><input type="text" name="shipping_address" id="shipping_address" size="25"></td>
+           <span id="addressError" class="error"></span>
+       </tr>
+       <tr>
+           <td>Phone:</td>
+           <td><input type="#" name="phone_number" id="phone_number" size="25"></td>
+           <span id="phoneError" class="error"></span>
+       </tr>
+       <tr>
+        <td>
+           <label for="status">Status:</label>
+           <select   name="order_status" id="order_status" >
+           <option value="Approved">Approved</option>
+           <option value="Reject">Reject</option>
+           <span id="statusError" class="error"></span>
+        </select>
+        </td>
+       </tr>
+       <tr>
+        <td>Date:</td>
+        <td> <input type="date" name="order_date" id="order_date" size="25"></td>
+        <span id="dateError" class="error"></span>
+    </tr>
+       <td><input type="submit" value="submit"></td>
+   
+   </table>
+</form>
+</body>
+<script>
+
+    function validatematerial(){
+    console.log('function validatematerial()......');
+    let valid= false;
+
+    let Order = document.getElementById("order_id").value;
+    let Customer = document.getElementById("customer_name").value;
+    let TotalOrder = document.getElementById("order_total").value;
+    let Address = document.getElementById("shipping_address").value;
+    let Phone = document.getElementById("phone_number").value;
+    let Status = document.getElementById("order_status").value;
+    let Date = document.getElementById("order_date").value;
+    
+
+    console.log("order_id ="+Order);
+    console.log("customer_name ="+Customer);
+    console.log("order_total ="+TotalOrder);
+    console.log("shipping_address ="+Address);
+    console.log("phone_number ="+Phone);
+    console.log("order_status ="+Status);
+    console.log("order_date ="+Date);
+    
+
+
+    document.getElementById('orderError').innerHTML='';
+    document.getElementById('customerError').innerHTML='';
+    document.getElementById('totalError').innerHTML='';
+    document.getElementById('addressError').innerHTML='';
+    document.getElementById('phoneError').innerHTML='';
+    document.getElementById('statusError').innerHTML='';
+    document.getElementById('dateError').innerHTML='';
+
+
+if(Order == ""){
+        console.log("Order is empty.");
+        document.getElementById('orderError').innerHTML ='';
+        document.getElementById("order_id").focus();
+        valid = false;
+    }
+if(Customer == ""){
+        console.log("Customer is empty.");
+        document.getElementById('customerError').innerHTML ='';
+        document.getElementById("customer_name").focus();
+        valid = false;
+    }
+if(TotalOrder == ""){
+        console.log("BuyerName is empty.");
+        document.getElementById('totalError').innerHTML ='';
+        document.getElementById("order_total").focus();
+        valid = false;
+    }   
+    if(Address == ""){
+     console.log("Address is empty.");
+     document.getElementById('addressError').innerHTML ='';
+     document.getElementById("shipping_address ").focus();
+     valid = false;
+    }
+    
+if(Phone == ""){
+        console.log("phone is empty.");
+        document.getElementById('phoneError').innerHTML ='';
+        document.getElementById("phone_number").focus();
+        valid = false;
+    }
+if(Status == ""){
+        console.log("Status is empty.");
+        document.getElementById('statusError').innerHTML ='';
+        document.getElementById("order_status").focus();
+        valid = false;
+    }
+if(Date == ""){
+        console.log("Date is empty.");
+        document.getElementById('dateError').innerHTML ='';
+        document.getElementById("order_date").focus();
+        valid = false;
+    }
+
+
+    valid = true;
+    console.log('end validateBuyer');
+    return valid;
+
+    }
+
+</script>
+</html>

@@ -1,0 +1,45 @@
+<html>
+  <head>
+    <style>
+      .rawMaterial {
+        margin-left: auto;
+        margin-right: auto;
+        width: 75%;
+      }
+
+      .rawMaterial th,
+      td {
+        border-bottom: blueviolet solid 1px;
+      }
+
+      .rawMaterial tr:nth-child(odd) {
+        background-color: #ecbebe;
+      }
+    </style>
+
+    <title>Raw Material Catalogue</title>
+  </head>
+  <table class="rawMaterial">
+    <tr>
+      <th>Order</th>
+      <th>Customer</th>
+      <th>Total-Order</th>
+      <th>Address</th>
+      <th>Phone</th>
+      <th> </th>
+      <th> </th>
+    </tr>
+    <% for(var a=0; a < data.length; a++) { %>
+    <tr>
+      <td><%= data[a].order_id%></td>
+      <td><%= data[a].customer_name%></td>
+      <td><%= data[a].order_total%></td>
+      <td><%= data[a].shipping_address%></td>
+      <td><%= data[a].phone_number%></td>
+      
+      <td><a href='editOrder.htm?doc_id=<%= data[a]._id%>'>Update</a></td>
+      <td><a href="">Delete</a></td>
+    </tr>
+    <% } %>
+  </table>
+</html>
